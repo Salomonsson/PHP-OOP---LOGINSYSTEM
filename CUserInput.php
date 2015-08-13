@@ -26,31 +26,23 @@ abstract class CUserInput{
 		$this->checkLoggedIn($this->isAuthenticated());
 	}
 
-
-
 	/*
 	* print_error, Loop out array of errors from validation in classes, CLogin, CRegistration
 	* @param, $a, array of errors
 	* @return, table list of all errors.
 	*/
 	protected function print_error($a) {
-
-	foreach ($a as $val) {
-		$this->status .= "<li>
-		                 	$val
-		              	  </li>";
+		foreach ($a as $val) {
+			$this->status .= "<li>
+			                 	$val
+			              	  </li>";
+		}
+		return $this->status;
 	}
-
-	return $this->status;
-	}
-
-
-
 
 	protected function isAuthenticated(){    
 		return isset($_SESSION['user']) ? true : false;
 	}
-
 
 	/************************************************************************** 
 	* isAuthenticated, checks if the user is logged in or not 
@@ -65,5 +57,6 @@ abstract class CUserInput{
 	    return false;
 	  }
 	}
+	
 
 }
